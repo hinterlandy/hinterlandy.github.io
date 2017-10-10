@@ -5,7 +5,7 @@
     function pollReCaptRslt(){
         var rslt=grecaptcha.getResponse();
         if (rslt.length>0){
-          window.parent.postMessage("extPassedCap", "*");
+          window.parent.postMessage("extPassedCapGitInvisbl", "*");
         }
     }
     
@@ -45,7 +45,7 @@
         if (rslt.length>0){ 
             consolelog('capt: succ');
             consolelog(rslt);
-            window.parent.postMessage("extPassedCap", "*");
+            window.parent.postMessage("extPassedCapGitInvisbl", "*");
         }
     }
     invisibleReCapt();
