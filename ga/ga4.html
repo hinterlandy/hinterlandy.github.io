@@ -1,0 +1,46 @@
+<html>
+<head>
+<!-- Google tag (gtag.js)-->
+<script>
+var qs = (function(a) {
+if (a == "") return {};
+var b = {};
+for (var i = 0; i < a.length; ++i)
+{
+var p=a[i].split('=', 2);
+if (p.length == 1)
+b[p[0]] = "";
+else
+b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+}
+return b;
+})(window.location.search.substr(1).split('&'));
+
+var title=atob(qs["tt"]);
+var cd1=qs["cd1"];
+var cd2=qs["cd2"];
+var cd3=qs["cd3"];
+var mytag=qs["mytag"];
+var myscript = document.createElement('script');
+myscript.src = "https://www.googletagmanager.com/gtag/js?id="+mytag;
+myscript.setAttribute("async","");
+document.head.insertBefore(myscript, document.head.firstChild);
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('set', 'cookie_flags', 'SameSite=None;Secure');
+gtag('config', mytag, {
+'page_title': title,
+});
+
+gtag('event','page_view', {
+"extid":cd1,
+"mversion":cd2,
+"insdays":cd3,
+});
+</script>
+</head>
+<body>
+</body>
+</html>
